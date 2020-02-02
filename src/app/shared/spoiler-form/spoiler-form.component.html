@@ -1,0 +1,49 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <textarea
+            class="form-control"
+            id="title"
+            rows="3"
+            placeholder="Type your title..." name="title"
+            #title="ngModel"
+            [(ngModel)]="spoiler.title"
+            [class.is-invalid]="!title.valid && title.touched"
+            required>
+        </textarea>
+        <div *ngIf="!title.valid && title.touched" class="text-danger">
+            Describe the title of your spoiler.
+        </div>
+
+        <label for="author">Author</label>
+        <textarea
+            class="form-control"
+            id="author"
+            rows="3"
+            placeholder="Type your author..." name="author"
+            #author="ngModel"
+            [(ngModel)]="spoiler.author"
+            [class.is-invalid]="!author.valid && author.touched"
+            required>
+        </textarea>
+        <div *ngIf="!author.valid && author.touched" class="text-danger">
+            Describe the author of your spoiler.
+        </div>
+        
+        <label for="description">Description</label>
+        <textarea
+            class="form-control"
+            id="description"
+            rows="3"
+            placeholder="Type your description..." name="description"
+            #description="ngModel"
+            [(ngModel)]="spoiler.description"
+            [class.is-invalid]="!description.valid && description.touched"
+            required>
+        </textarea>
+        <div *ngIf="!description.valid && description.touched" class="text-danger">
+            Describe the description of your spoiler.
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Save</button>
+</form>

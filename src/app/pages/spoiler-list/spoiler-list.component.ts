@@ -1,7 +1,9 @@
+import { AppModule } from './../../app.module';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Spoiler } from '../../interfaces/spoiler';
 import { SpoilerService } from '../../services/spoiler.service';
 import { ErrorMsgComponent } from '../../shared/error-msg/error-msg.component';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-spoiler-list',
@@ -12,6 +14,7 @@ import { ErrorMsgComponent } from '../../shared/error-msg/error-msg.component';
 export class SpoilerListComponent implements OnInit {
 
   public spoiler: Spoiler[];
+  
   @ViewChild(ErrorMsgComponent, {static: true}) errorMsgComponent: ErrorMsgComponent;
 
   constructor(private spoilerService: SpoilerService) { }
@@ -34,7 +37,7 @@ export class SpoilerListComponent implements OnInit {
       }, () => { this.errorMsgComponent.setError('Failed to delete spoilers.'); });
   }
 
-  haveSpoiler(): boolean {
+  haveSpoiler(): boolean {  
     return this.spoiler && this.spoiler.length > 0;
   }
 

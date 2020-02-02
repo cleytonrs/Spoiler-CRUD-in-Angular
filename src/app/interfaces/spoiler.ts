@@ -3,4 +3,6 @@ export interface Spoiler {
     title: string;
     author: string;
     description: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

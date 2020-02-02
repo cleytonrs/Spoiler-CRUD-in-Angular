@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Spoiler } from '../interfaces/spoiler';
 
@@ -9,10 +10,10 @@ import { Spoiler } from '../interfaces/spoiler';
 })
 export class SpoilerService {
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   getSpoilerList(): Observable<Spoiler[]> {
-    const url = `${environment.spoilerApiUrl}/`;
+    const url = `${environment.spoilerApiUrl}`;
     return this.http.get<Spoiler[]>(url);
   }
 

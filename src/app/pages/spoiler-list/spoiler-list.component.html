@@ -10,22 +10,22 @@
             </div>
         </div>
     </div>
-    <div class="row mt-3" *ngFor="let spoiler of spoiler">
+    <div class="row mt-3" *ngFor="let spoilers of spoiler">
         <div class="col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header class.badge-danger">
-                    <p class="class badge-danger">{{ spoiler.title }}</p>
+                    <p class="class badge-danger" id="title">{{ spoilers.title }}</p>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{{ spoiler.author }}</p>
+                    <p class="card-text">{{ spoilers.author }}</p>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{{ spoiler.description }}</p>
+                    <p class="card-text">{{ spoilers.description }}</p>
                 </div>
                 <div class="card-footer">
                     <div class="text-right">
-                        <button type="button" class="btn btn-primary btn-sm ml-1" routerLink="/spoilers/{{spoiler.id}}">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteSpoiler(spoiler.id)">X</button>
+                        <button type="button" class="btn btn-primary btn-sm ml-1" routerLink="/spoilers/{{spoilers.id}}">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteSpoiler(spoilers.id)">Delete</button>
                     </div>
                 </div>
             </div>
